@@ -26,7 +26,7 @@ function App (props) {
   }
 
   const handleShowAll = () => {
-    setShowAll(() => !showAll)
+    setShowAll(PrevState => !PrevState)
   }
 
   return (
