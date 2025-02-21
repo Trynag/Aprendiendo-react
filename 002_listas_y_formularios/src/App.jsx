@@ -11,6 +11,8 @@ function App (props) {
     setNewNote(event.target.value)
   }
 
+  console.log("Nuevo cambio")
+
   const handleSubmit = (event) => {
     event.preventDefault()
 
