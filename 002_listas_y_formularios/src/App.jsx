@@ -12,6 +12,7 @@ function App (props) {
   }
 
   console.log("Nuevo cambio")
+  console.log("console desde developer")
 
   const handleSubmit = (event) => {
     event.preventDefault()
