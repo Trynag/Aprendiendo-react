@@ -1,11 +1,20 @@
-import { useState } from 'react'
-import './App.css'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 import { Notes } from './components/Notes'
+import './App.css'
 
-function App (props) {
-  // eslint-disable-next-line react/prop-types
-  const [notes, setNotes] = useState(props.notes)
+function App () {
+  const [notes, setNotes] = useState([])
   const [newNote, setNewNote] = useState('')
+
+  useEffect(() => {
+    axios
+      .get('https://jsonplaceholder.typicode.com/posts')
+      .then((response) => {
+        const { data } = response
+        setNotes(data)
+      })
+  }, [])
 
   const handleChange = (event) => {
     setNewNote(event.target.value)
@@ -16,7 +25,8 @@ function App (props) {
 
     const noteToAdToState = {
       id: notes.length + 1,
-      content: newNote,
+      title: newNote,
+      body: newNote,
       important: Math.random() < 0.5,
       message: 'a message'
     }
@@ -38,7 +48,7 @@ function App (props) {
       </ul>
 
       <form onSubmit={handleSubmit}>
-        <input type='text' onChange={handleChange} value={newNote} />
+        <input type='text' onChange={handleChange} value={newNote} style={{ marginRight: '15px', padding: '10px' }} />
         <button>Crear nota</button>
       </form>
     </>

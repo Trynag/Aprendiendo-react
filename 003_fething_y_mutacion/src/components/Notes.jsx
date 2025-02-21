@@ -2,7 +2,7 @@
 export const Notes = ({ title, body }) => {
   return (
     <li>
-      <p> {title} </p>
+      <h2> {title} </h2>
       <small> {body} </small>
     </li>
   )
