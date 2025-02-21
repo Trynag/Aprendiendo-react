@@ -24,15 +24,20 @@ function App () {
     event.preventDefault()
 
     const noteToAdToState = {
-      id: notes.length + 1,
       title: newNote,
       body: newNote,
-      important: Math.random() < 0.5,
-      message: 'a message'
+      userId: 1
     }
 
-    setNotes([...notes, noteToAdToState])
-    setNewNote('')
+    axios
+      .post('https://jsonplaceholder.typicode.com/posts', noteToAdToState)
+      .then(response => {
+        const { data } = response
+        setNotes(prevNotes => prevNotes.concat(data))
+      })
+
+    // setNotes([...notes, noteToAdToState])
+    setNewNote([...notes, noteToAdToState])
   }
 
   return (
