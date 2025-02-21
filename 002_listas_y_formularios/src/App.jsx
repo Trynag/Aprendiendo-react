@@ -12,6 +12,7 @@ function App (props) {
   }
 
   console.log("Nuevo cambio")
+  console.log("console desde main")
 
   const handleSubmit = (event) => {
     event.preventDefault()
