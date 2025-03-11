@@ -27,7 +27,7 @@
     "standard": "^17.1.2",
     "vite": "^6.1.0"
   },
-  "extends": [
-    "standard"
-  ]
+  "eslintConfig": {
+    "extends": "./node_modules/standard/eslintrc.json"
+  }
 }
