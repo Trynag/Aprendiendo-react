@@ -1,12 +1,22 @@
-import './App.css';
+import './App.css'
 
 const App = () => {
   return (
-    <div className="content">
-      <h1>Rsbuild with React</h1>
-      <p>Start building amazing things with Rsbuild.</p>
-    </div>
-  );
-};
+    <>
+      <div className='page'>
+        <header>
+          <h1>Buscador de películas</h1>
+          <form>
+            <input type='text' placeholder='Avengers, Star wars, The Matrix...' />
+            <button>Search</button>
+          </form>
+        </header>
+        <main>
+          Aquí los resultados
+        </main>
+      </div>
+    </>
+  )
+}
 
-export default App;
+export default App
